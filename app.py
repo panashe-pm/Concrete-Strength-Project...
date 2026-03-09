@@ -51,10 +51,11 @@ st.write(df)
 # 4. Prediction Logic
 if st.button('Predict Strength'):
     # Apply the same scaling used during training
-    scaled_inputs = scaler.transform(df)
+    scaled_inputs = scaler.transform(df.values)
     
     # Run the prediction
     prediction = model.predict(scaled_inputs)
     
     # Show the result in a nice box
+
     st.success(f"### Predicted Compressive Strength: {prediction[0]:.2f} MPa")
